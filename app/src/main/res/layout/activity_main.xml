@@ -6,28 +6,60 @@
 
 
     <TextView
-        android:id="@+id/locationLat"
+        android:id="@+id/lat_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:digits="numeric"
+        android:paddingBottom="@dimen/padding_bottom"
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingRight="@dimen/padding_right"
+        android:paddingTop="@dimen/padding_top"
         android:text="Latitude:"
-        android:textSize="18dp" />
+        android:textSize="@dimen/text_size" />
+
 
     <TextView
+        android:id="@+id/lat_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_toRightOf="@id/lat_label"
+        android:digits="numeric"
+        android:paddingBottom="@dimen/padding_bottom"
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingRight="@dimen/padding_right"
+        android:paddingTop="@dimen/padding_top"
+        android:textSize="@dimen/text_size"
+        tools:text="value here"
 
         />
 
     <TextView
-        android:id="@+id/locationLong"
+        android:id="@+id/long_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/locationLat"
-        android:digits="numeric"
+        android:layout_below="@id/lat_label"
+
+        android:paddingBottom="@dimen/padding_bottom"
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingRight="@dimen/padding_right"
         android:text="Longitude:"
-        android:textSize="18dp" />
+        android:textSize="@dimen/text_size"
+
+        />
+
+    <TextView
+        android:id="@+id/long_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lat_value"
+        android:layout_toRightOf="@id/long_label"
+        android:digits="numeric"
+        android:paddingBottom="@dimen/padding_bottom"
+        android:paddingLeft="@dimen/padding_left"
+        android:paddingRight="@dimen/padding_right"
+        android:textSize="@dimen/text_size"
+        tools:text="value here"
+
+        />
 
 
 
