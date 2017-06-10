@@ -58,6 +58,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
+        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        if (mLastLocation != null) {
+            latValue.setText(String.valueOf(mLastLocation.getLatitude()));
+            longValue.setText(String.valueOf(mLastLocation.getLongitude()));
+        }
+
     }
 
     @Override
