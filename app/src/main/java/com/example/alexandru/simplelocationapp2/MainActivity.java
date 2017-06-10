@@ -16,14 +16,15 @@ import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
+
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
 
     protected final String LOG_TAG = String.valueOf(R.string.app_name);
+    protected final int MAX_INACTIVE = 5;
     protected GoogleApiClient mGoogleApiClient;
     protected Location mLastLocation;
     protected LocationRequest mLocationRequest;
-
     protected TextView latValue;
     protected TextView longValue;
 
@@ -32,9 +33,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        buildGoogleAppClient();
         latValue = (TextView) findViewById(R.id.lat_value);
         longValue = (TextView) findViewById(R.id.long_value);
-        buildGoogleAppClient();
+
     }
 
     private void buildGoogleAppClient() {
@@ -65,6 +68,12 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     @Override
     public void onConnected(@Nullable Bundle bundle) {
 
+        mLocationRequest = LocationRequest.create();
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setInterval(MAX_INACTIVE);
+
+        Log.e(LOG_TAG, mGoogleApiClient.isConnected() + "");
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -74,11 +83,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-        mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
-        if (mLastLocation != null) {
-            latValue.setText(String.valueOf(mLastLocation.getLatitude()));
-            longValue.setText(String.valueOf(mLastLocation.getLongitude()));
-        }
+
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+
+
+
 
     }
 
@@ -95,6 +104,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     @Override
     public void onLocationChanged(Location location) {
+
+        Log.e(LOG_TAG, "Location changes");
+
+        latValue.setText(location.getLatitude() + "");
+        longValue.setText(location.getLongitude() + "");
 
     }
 }

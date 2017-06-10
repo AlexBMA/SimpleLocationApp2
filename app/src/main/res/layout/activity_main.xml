@@ -23,7 +23,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/lat_label"
-        android:digits="numeric"
         android:paddingBottom="@dimen/padding_bottom"
         android:paddingLeft="@dimen/padding_left"
         android:paddingRight="@dimen/padding_right"
@@ -39,7 +38,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lat_label"
-
         android:paddingBottom="@dimen/padding_bottom"
         android:paddingLeft="@dimen/padding_left"
         android:paddingRight="@dimen/padding_right"
@@ -55,7 +53,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/lat_value"
         android:layout_toRightOf="@id/long_label"
-        android:digits="numeric"
         android:paddingBottom="@dimen/padding_bottom"
         android:paddingLeft="@dimen/padding_left"
         android:paddingRight="@dimen/padding_right"
