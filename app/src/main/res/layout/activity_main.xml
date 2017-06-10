@@ -14,6 +14,7 @@
         android:paddingRight="@dimen/padding_right"
         android:paddingTop="@dimen/padding_top"
         android:text="Latitude:"
+        android:textColor="@color/colorText"
         android:textSize="@dimen/text_size" />
 
 
@@ -27,6 +28,7 @@
         android:paddingLeft="@dimen/padding_left"
         android:paddingRight="@dimen/padding_right"
         android:paddingTop="@dimen/padding_top"
+        android:textColor="@color/colorText"
         android:textSize="@dimen/text_size"
         tools:text="value here"
 
@@ -42,6 +44,7 @@
         android:paddingLeft="@dimen/padding_left"
         android:paddingRight="@dimen/padding_right"
         android:text="Longitude:"
+        android:textColor="@color/colorText"
         android:textSize="@dimen/text_size"
 
         />
@@ -56,6 +59,7 @@
         android:paddingBottom="@dimen/padding_bottom"
         android:paddingLeft="@dimen/padding_left"
         android:paddingRight="@dimen/padding_right"
+        android:textColor="@color/colorText"
         android:textSize="@dimen/text_size"
         tools:text="value here"
 
